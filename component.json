@@ -1,0 +1,14 @@
+{
+  "name": "is",
+  "repo": "pazguille/is",
+  "description": "A JavaScript library to ask basic questions.",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}
