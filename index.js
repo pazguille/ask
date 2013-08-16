@@ -26,6 +26,10 @@ is.num = function (num) {
     return typeof num === 'number';
 };
 
+is.date = function (date) {
+    return Object.prototype.toString.call(date) === '[object Date]';
+};
+
 /**
  * Expose is
  */

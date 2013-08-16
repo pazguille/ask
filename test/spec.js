@@ -115,3 +115,22 @@ describe('is.num(param)', function () {
         expect(num).toBeTruthy();
     });
 });
+
+describe('is.date(param)', function () {
+
+    it('should be defined', function () {
+        expect(is.date).toBeDefined();
+    });
+
+    it('should be a function', function () {
+        expect(typeof is.date).toBe('function');
+    });
+
+    it('should return "true" if the parameter is a number.', function () {
+        var num = is.date('str'),
+            date = is.date(new Date());
+        expect(typeof date).toBe('boolean');
+        expect(num).toBeFalsy();
+        expect(date).toBeTruthy();
+    });
+});
