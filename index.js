@@ -1,53 +1,57 @@
-var is = {};
+var ask = {};
 
 function getType(value) {
-    // I use 'is' object instead of Object.prototype.
-    return is.toString.call(value);
+    // I use 'ask' object instead of Object.prototype.
+    return ask.toString.call(value);
 }
 
 // Types
 
-is.arr = Array.isArray || function (arr) {
+ask.isArray = Array.isArray || function (arr) {
     return getType(arr) === '[object Array]';
 };
 
-is.obj = function (obj) {
+ask.isObject = function (obj) {
     return typeof obj === 'object';
 };
 
-is.fn = function (fn) {
+ask.isFunction = function (fn) {
     return typeof fn === 'function';
 };
 
-is.str = function (str) {
+ask.isString = function (str) {
     return typeof str === 'string';
 };
 
-is.num = function (num) {
+ask.isNumber = function (num) {
     return typeof num === 'number';
 };
 
-is.date = function (date) {
+ask.isDate = function (date) {
     return getType(date) === '[object Date]';
 };
 
-is.regexp = function (regexp) {
+ask.isRegexp = function (regexp) {
     return getType(regexp) === '[object RegExp]';
 };
 
-is.null = function (obj) {
+ask.isNull = function (obj) {
     return obj === null;
 };
 
-is.defined = function (defined) {
+ask.isDefined = function (defined) {
     return defined !== undefined;
 };
 
-is.nodeElement = function (node) {
+ask.isNodeElement = function (node) {
     return getType(node).match(/HTML/) !== null;
 };
 
+ask.hasFocus = function (node) {
+    return document.activeElement === node;
+};
+
 /**
- * Expose is
+ * Expose ask
  */
-exports = module.exports = is;
+exports = module.exports = ask;
