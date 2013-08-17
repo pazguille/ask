@@ -127,10 +127,86 @@ describe('is.date(param)', function () {
     });
 
     it('should return "true" if the parameter is a number.', function () {
-        var num = is.date('str'),
+        var num = is.date(2),
             date = is.date(new Date());
         expect(typeof date).toBe('boolean');
         expect(num).toBeFalsy();
         expect(date).toBeTruthy();
+    });
+});
+
+describe('is.regexp(param)', function () {
+
+    it('should be defined', function () {
+        expect(is.regexp).toBeDefined();
+    });
+
+    it('should be a function', function () {
+        expect(typeof is.regexp).toBe('function');
+    });
+
+    it('should return "true" if the parameter is a number.', function () {
+        var num = is.regexp(2),
+            regexp = is.regexp(/a/);
+        expect(typeof regexp).toBe('boolean');
+        expect(num).toBeFalsy();
+        expect(regexp).toBeTruthy();
+    });
+});
+
+describe('is.null(param)', function () {
+
+    it('should be defined', function () {
+        expect(is.null).toBeDefined();
+    });
+
+    it('should be a function', function () {
+        expect(typeof is.null).toBe('function');
+    });
+
+    it('should return "true" if the parameter is a number.', function () {
+        var num = is.null(2),
+            nul = is.null(null);
+        expect(typeof nul).toBe('boolean');
+        expect(num).toBeFalsy();
+        expect(nul).toBeTruthy();
+    });
+});
+
+describe('is.defined(param)', function () {
+
+    it('should be defined', function () {
+        expect(is.defined).toBeDefined();
+    });
+
+    it('should be a function', function () {
+        expect(typeof is.defined).toBe('function');
+    });
+
+    it('should return "true" if the parameter is a number.', function () {
+        var un = is.defined(undefined),
+            defined = is.defined('foo');
+        expect(typeof defined).toBe('boolean');
+        expect(un).toBeFalsy();
+        expect(defined).toBeTruthy();
+    });
+});
+
+describe('is.nodeElement(param)', function () {
+
+    it('should be defined', function () {
+        expect(is.nodeElement).toBeDefined();
+    });
+
+    it('should be a function', function () {
+        expect(typeof is.nodeElement).toBe('function');
+    });
+
+    it('should return "true" if the parameter is a number.', function () {
+        var obj = is.nodeElement([]),
+            html = is.nodeElement(document);
+        expect(typeof html).toBe('boolean');
+        expect(obj).toBeFalsy();
+        expect(html).toBeTruthy();
     });
 });

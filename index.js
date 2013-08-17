@@ -1,14 +1,15 @@
 var is = {};
 
-is.arr = (function () {
-    if (typeof Array.isArray === 'function') {
-        return Array.isArray;
-    }
+function getType(value) {
+    // I use 'is' object instead of Object.prototype.
+    return is.toString.call(value);
+}
 
-    return function (arr) {
-        return (Object.prototype.toString.call(arr) === '[object Array]');
-    };
-}());
+// Types
+
+is.arr = Array.isArray || function (arr) {
+    return getType(arr) === '[object Array]';
+};
 
 is.obj = function (obj) {
     return typeof obj === 'object';
@@ -27,7 +28,23 @@ is.num = function (num) {
 };
 
 is.date = function (date) {
-    return Object.prototype.toString.call(date) === '[object Date]';
+    return getType(date) === '[object Date]';
+};
+
+is.regexp = function (regexp) {
+    return getType(regexp) === '[object RegExp]';
+};
+
+is.null = function (obj) {
+    return obj === null;
+};
+
+is.defined = function (defined) {
+    return defined !== undefined;
+};
+
+is.nodeElement = function (node) {
+    return getType(node).match(/HTML/) !== null;
 };
 
 /**
