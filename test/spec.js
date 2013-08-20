@@ -107,7 +107,7 @@ describe('ask.isNumber(param)', function () {
         expect(typeof ask.isNumber).toBe('function');
     });
 
-    it('should return "true" if the parameter askask a number.', function () {
+    it('should return "true" if the parameter is a number.', function () {
         var str = ask.isNumber('str'),
             num = ask.isNumber(2);
         expect(typeof num).toBe('boolean');
@@ -126,7 +126,7 @@ describe('ask.isDate(param)', function () {
         expect(typeof ask.isDate).toBe('function');
     });
 
-    it('should return "true" if the parameter ask a number.', function () {
+    it('should return "true" if the parameter is a date.', function () {
         var num = ask.isDate(2),
             date = ask.isDate(new Date());
         expect(typeof date).toBe('boolean');
@@ -145,7 +145,7 @@ describe('ask.isRegexp(param)', function () {
         expect(typeof ask.isRegexp).toBe('function');
     });
 
-    it('should return "true" if the parameter ask a number.', function () {
+    it('should return "true" if the parameter is a regexp.', function () {
         var num = ask.isRegexp(2),
             regexp = ask.isRegexp(/a/);
         expect(typeof regexp).toBe('boolean');
@@ -164,7 +164,7 @@ describe('ask.isNull(param)', function () {
         expect(typeof ask.isNull).toBe('function');
     });
 
-    it('should return "true" if the parameter ask a number.', function () {
+    it('should return "true" if the parameter is null.', function () {
         var num = ask.isNull(2),
             nul = ask.isNull(null);
         expect(typeof nul).toBe('boolean');
@@ -183,7 +183,7 @@ describe('ask.isDefined(param)', function () {
         expect(typeof ask.isDefined).toBe('function');
     });
 
-    it('should return "true" if the parameter ask a number.', function () {
+    it('should return "true" if the parameter is defined.', function () {
         var un = ask.isDefined(undefined),
             defined = ask.isDefined('foo');
         expect(typeof defined).toBe('boolean');
@@ -202,11 +202,101 @@ describe('ask.isNodeElement(param)', function () {
         expect(typeof ask.isNodeElement).toBe('function');
     });
 
-    it('should return "true" if the parameter ask a number.', function () {
+    it('should return "true" if the parameter is a node element.', function () {
         var obj = ask.isNodeElement([]),
             html = ask.isNodeElement(document);
         expect(typeof html).toBe('boolean');
         expect(obj).toBeFalsy();
         expect(html).toBeTruthy();
+    });
+});
+
+describe('ask.hasFocus(param)', function () {
+
+    it('should be defined', function () {
+        expect(ask.hasFocus).toBeDefined();
+    });
+
+    it('should be a function', function () {
+        expect(typeof ask.hasFocus).toBe('function');
+    });
+
+    it('should return "true" if the parameter has focus.', function () {
+        var a = document.createElement('a'),
+            html,
+            node;
+
+        document.body.appendChild(a);
+        a.href = '#';
+        a.innerHTML = 'test';
+        a.focus();
+        html = ask.hasFocus(document),
+        node = ask.hasFocus(a)
+        expect(typeof node).toBe('boolean');
+        expect(html).toBeFalsy();
+        expect(node).toBeTruthy();
+        a.remove();
+    });
+});
+
+describe('ask.isEmpty(param)', function () {
+
+    it('should be defined', function () {
+        expect(ask.isEmpty).toBeDefined();
+    });
+
+    it('should be a function', function () {
+        expect(typeof ask.isEmpty).toBe('function');
+    });
+
+    it('should return "true" if the parameter is an empty array.', function () {
+        var obj = ask.isEmpty([1,2,3]),
+            arr = ask.isEmpty([]);
+        expect(typeof arr).toBe('boolean');
+        expect(obj).toBeFalsy();
+        expect(arr).toBeTruthy();
+    });
+});
+
+describe('ask.isInside(value, array)', function () {
+
+    it('should be defined', function () {
+        expect(ask.isInside).toBeDefined();
+    });
+
+    it('should be a function', function () {
+        expect(typeof ask.isInside).toBe('function');
+    });
+
+    it('should return "true" if the value is included into a given array.', function () {
+        var obj = ask.isInside(5, [1,2,3]),
+            arr = ask.isInside(2, [1,2,3]),
+            str = ask.isInside('World', 'Hello World.');
+
+        expect(typeof arr).toBe('boolean');
+        expect(obj).toBeFalsy();
+        expect(arr).toBeTruthy();
+        expect(str).toBeTruthy();
+
+    });
+});
+
+describe('ask.hasProperty(property, obj)', function () {
+
+    it('should be defined', function () {
+        expect(ask.hasProperty).toBeDefined();
+    });
+
+    it('should be a function', function () {
+        expect(typeof ask.hasProperty).toBe('function');
+    });
+
+    it('should return "true" if the given object has got the given property.', function () {
+        var obj = {'foo': 'bar'},
+            f = ask.hasProperty('foobar', obj);
+            t = ask.hasProperty('foo', obj);
+        expect(typeof t).toBe('boolean');
+        expect(f).toBeFalsy();
+        expect(t).toBeTruthy();
     });
 });
