@@ -258,20 +258,20 @@ describe('ask.isEmpty(param)', function () {
     });
 });
 
-describe('ask.isInside(value, array)', function () {
+describe('ask.hasValue(value, array)', function () {
 
     it('should be defined', function () {
-        expect(ask.isInside).toBeDefined();
+        expect(ask.hasValue).toBeDefined();
     });
 
     it('should be a function', function () {
-        expect(typeof ask.isInside).toBe('function');
+        expect(typeof ask.hasValue).toBe('function');
     });
 
     it('should return "true" if the value is included into a given array.', function () {
-        var obj = ask.isInside(5, [1,2,3]),
-            arr = ask.isInside(2, [1,2,3]),
-            str = ask.isInside('World', 'Hello World.');
+        var obj = ask.hasValue(5, [1,2,3]),
+            arr = ask.hasValue(2, [1,2,3]),
+            str = ask.hasValue('World', 'Hello World.');
 
         expect(typeof arr).toBe('boolean');
         expect(obj).toBeFalsy();

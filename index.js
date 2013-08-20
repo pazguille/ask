@@ -66,7 +66,7 @@ ask.isFunction = function (fn) {
 
 /**
  * Returns true if the given argument is a string, false if it is not.
- * @param {String} fn A given argument to analize.
+ * @param {String} str A given argument to analize.
  * @returns {Boolean}
  * @example
  * ask.isString('Some string.'); // true
@@ -77,7 +77,7 @@ ask.isString = function (str) {
 
 /**
  * Returns true if the given argument is a number, false if it is not.
- * @param {Number} fn A given argument to analize.
+ * @param {Number} num A given argument to analize.
  * @returns {Boolean}
  * @example
  * ask.isNumber(100); // true
@@ -88,10 +88,10 @@ ask.isNumber = function (num) {
 
 /**
  * Returns true if the given argument is a date, false if it is not.
- * @param {Date} fn A given argument to analize.
+ * @param {Date} date A given argument to analize.
  * @returns {Boolean}
  * @example
- * ask.isFunction(function () {}); // true
+ * ask.isDate(new Date()); // true
  */
 ask.isDate = function (date) {
     return getType(date) === '[object Date]';
@@ -99,10 +99,10 @@ ask.isDate = function (date) {
 
 /**
  * Returns true if the given argument is a regular expresion, false if it is not.
- * @param {RegExp} fn A given argument to analize.
+ * @param {RegExp} regexp A given argument to analize.
  * @returns {Boolean}
  * @example
- * ask.isFunction(function () {}); // true
+ * ask.isRegexp(new RegExp('foo')); // true
  */
 ask.isRegexp = function (regexp) {
     return getType(regexp) === '[object RegExp]';
@@ -110,10 +110,10 @@ ask.isRegexp = function (regexp) {
 
 /**
  * Returns true if the given argument is null, false if it is not.
- * @param {Object} fn A given argument to analize.
+ * @param {Object} obj A given argument to analize.
  * @returns {Boolean}
  * @example
- * ask.isFunction(function () {}); // true
+ * ask.isNull(null); // true
  */
 ask.isNull = function (obj) {
     return obj === null;
@@ -121,33 +121,33 @@ ask.isNull = function (obj) {
 
 /**
  * Returns true if the given argument is defined, false if it is not.
- * @param {Object} fn A given argument to analize.
+ * @param {Object} obj A given argument to analize.
  * @returns {Boolean}
  * @example
- * ask.isFunction(function () {}); // true
+ * ask.isDefined(window); // true
  */
-ask.isDefined = function (defined) {
+ask.isDefined = function (obj) {
     return defined !== undefined;
 };
 
 // Nodes
 /**
  * Returns true if the given argument is a node element, false if it is not.
- * @param {Object} fn A given argument to analize.
+ * @param {HTMLElement} node A given argument to analize.
  * @returns {Boolean}
  * @example
- * ask.isFunction(function () {}); // true
+ * ask.isNodeElement(document.body); // true
  */
 ask.isNodeElement = function (node) {
     return getType(node).match(/HTML/) !== null;
 };
 
 /**
- * Returns true if the given argument has focus, false if it is not.
- * @param {HTMLElement} fn A given argument to analize.
+ * Returns true if the given argument has focus, false if it has not.
+ * @param {HTMLElement} node A given argument to analize.
  * @returns {Boolean}
  * @example
- * ask.isFunction(function () {}); // true
+ * ask.hasFocus(document); // true
  */
 ask.hasFocus = function (node) {
     return doc.activeElement === node;
@@ -155,10 +155,10 @@ ask.hasFocus = function (node) {
 
 /**
  * Returns true if the given argument is visible into the viewport, false if it is not.
- * @param {HTMLElement} fn A given argument to analize.
+ * @param {HTMLElement} node A given argument to analize.
  * @returns {Boolean}
  * @example
- * ask.isFunction(function () {}); // true
+ * ask.isVisible(document.body); // true
  */
 ask.isVisible = function (node) {
     var r = node.getBoundingClientRect();
@@ -172,23 +172,23 @@ ask.isVisible = function (node) {
  * @param {Array} arr A given argument to analize.
  * @returns {Boolean}
  * @example
- * ask.isFunction(function () {}); // true
+ * ask.isEmpty([]); // true
  */
 ask.isEmpty = function (arr) {
     return arr.length === 0;
 };
 
 /**
- * Returns true if the given argument is in a given array, false if it is not.
+ * Returns true if the given argument is in a given array or string, false if it is not.
  * @param {String} value A given value to analize.
  * @param {Array | String} arr A given array or string to analize.
  * @returns {Boolean}
  * @example
- * ask.isInside(2, [1,2,3]); // true
+ * ask.hasValue(2, [1,2,3]); // true
 * @example
- * ask.isInside('World', 'Hello World'); // true
+ * ask.hasValue('World', 'Hello World'); // true
  */
-ask.isInside = function (value, arr) {
+ask.hasValue = function (value, arr) {
     if (typeof arr === 'string') {
         return arr.match(new RegExp(value )) !== null;
     }
