@@ -3,7 +3,13 @@
   "repo": "pazguille/ask",
   "description": "A JavaScript library to ask basic questions.",
   "version": "0.0.1",
-  "keywords": [],
+  "keywords": [
+    "types",
+    "util",
+    "helper",
+    "ask",
+    "questions"
+  ],
   "dependencies": {},
   "development": {
     "bestander/jasmine": "*"
