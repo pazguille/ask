@@ -1,3 +1,12 @@
+/**
+ * A namespace that has all available questions to ask..
+ * @namespace
+ */
+var ask = {},
+    doc = window.document,
+    docEl = window.document.documentElement,
+    indexof;
+
 function getType(value) {
     // I use 'ask' object instead of Object.prototype.
     return ask.toString.call(value);
@@ -20,15 +29,7 @@ function indexOfFix(value, arr) {
     return -1;
 }
 
-/**
- * A namespace that has all available questions to ask..
- * @namespace
- */
-var ask = {},
-    doc = window.document,
-    docEl = window.document.documentElement,
-    indexof = [].indexOf !== undefined ? indexOf : indexOfFix;
-
+indexof = [].indexOf !== undefined ? indexOf : indexOfFix;
 
 // Types
 /**
@@ -127,7 +128,7 @@ ask.isNull = function (obj) {
  * ask.isDefined(window); // true
  */
 ask.isDefined = function (obj) {
-    return defined !== undefined;
+    return obj !== undefined;
 };
 
 // Nodes
@@ -190,11 +191,11 @@ ask.isEmpty = function (arr) {
  */
 ask.hasValue = function (value, arr) {
     if (typeof arr === 'string') {
-        return arr.match(new RegExp(value )) !== null;
+        return arr.match(new RegExp(value)) !== null;
     }
 
     return indexof(value, arr);
-}
+};
 
 /**
  * Returns true if a given object has a given key, false if it has not.
@@ -206,7 +207,7 @@ ask.hasValue = function (value, arr) {
  */
 ask.hasProperty = function (key, obj) {
     return obj[key] !== undefined;
-}
+};
 
 /**
  * Expose ask
