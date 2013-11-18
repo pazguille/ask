@@ -2,25 +2,8 @@
 
 A JavaScript library to ask basic questions.
 
-## Installation
-
-	$ component install pazguille/ask
-
-See: [https://github.com/component/component](https://github.com/component/component)
-
-### Standalone
-Also, you can use the standalone version without components.
-```html
-<script src="../standalone/ask.js"></script>
-```
 ## How-to
 
-First, requires `ask` library:
-```js
-var ask = require('ask');
-```
-
-Then, start to ask basic questions:
 ```js
 ask.isDefined(foo);
 
@@ -164,4 +147,6 @@ ask.hasProperty('foo', {'foo': 'bar'}); // true
 
 
 ## License
-Copyright (c) 2013 [@pazguille](http://twitter.com/pazguille) Licensed under the MIT license.
+Licensed under the MIT license.
+
+Copyright (c) 2013 [@pazguille](http://twitter.com/pazguille).

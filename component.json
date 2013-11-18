@@ -15,8 +15,6 @@
     "bestander/jasmine": "*"
   },
   "license": "MIT",
-  "main": "index.js",
-  "scripts": [
-    "index.js"
-  ]
+  "main": "ask.js",
+  "scripts": ["ask.js"]
 }

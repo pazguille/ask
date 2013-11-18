@@ -213,7 +213,7 @@
     };
 
     /**
-     * Expose Shuffle
+     * Expose ask
      */
     // AMD suppport
     if (typeof window.define === 'function' && window.define.amd !== undefined) {
