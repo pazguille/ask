@@ -3,6 +3,8 @@
   "repo": "pazguille/ask",
   "description": "A JavaScript library to ask basic questions.",
   "version": "0.0.1",
+  "author": "Guille Paz <guille87paz@gmail.com>",
+  "twitter": "@pazguille",
   "keywords": [
     "types",
     "util",
@@ -15,6 +17,6 @@
     "bestander/jasmine": "*"
   },
   "license": "MIT",
-  "main": "ask.js",
-  "scripts": ["ask.js"]
+  "main": "dist/ask.js",
+  "scripts": ["dist/ask.js"]
 }
