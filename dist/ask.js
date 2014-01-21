@@ -1,3 +1,9 @@
+/*!
+ * ask.js v0.0.1
+ *
+ * Copyright (c) 2014, @pazguille
+ * Released under the MIT license.
+ */
 (function (window) {
     'use strict';
 
