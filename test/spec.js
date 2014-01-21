@@ -1,14 +1,3 @@
-(function (window) {
-    var lib = require('bestander-jasmine');
-    for (var key in lib) {
-        if (lib.hasOwnProperty(key)) {
-            window[key] = lib[key];
-        }
-    }
-}(window));
-
-var ask = require('ask');
-
 describe('ask', function () {
 
     it('should be defined', function () {
@@ -235,7 +224,7 @@ describe('ask.hasFocus(param)', function () {
         expect(typeof node).toBe('boolean');
         expect(html).toBeFalsy();
         expect(node).toBeTruthy();
-        a.remove();
+        document.body.removeChild(a);
     });
 });
 
