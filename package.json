@@ -19,7 +19,7 @@
   "dependencies": {},
   "devDependencies": {
     "grunt": "~1.0.1",
-    "grunt-contrib-jasmine": "~1.0.3",
+    "grunt-contrib-jasmine": "~2.0.0",
     "grunt-jslint": "1.1.14",
     "grunt-contrib-concat": "1.0.1",
     "grunt-contrib-uglify": "2.0.0"
